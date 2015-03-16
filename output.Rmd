@@ -1,0 +1,78 @@
+```{r src, echo=FALSE}
+source("eu_maps.R")
+```
+EU - Life Quality Geo Report
+====
+
+### *Living longer, living better?*
+<br/>
+
+It's equally important to measure the longer living as well as its quality. 
+<br/>
+Analyzing data from [eurostat](http://ec.europa.eu/eurostat/publications/recently-published?p_auth=ZKofrOKp&p_p_id=estatsearchportlet_WAR_estatsearchportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_estatsearchportlet_WAR_estatsearchportlet_position=HLY_M&_estatsearchportlet_WAR_estatsearchportlet_dimension=break_sd&_estatsearchportlet_WAR_estatsearchportlet_sort=lastUpdateDate&_estatsearchportlet_WAR_estatsearchportlet_theme=PER_POPSOC&_estatsearchportlet_WAR_estatsearchportlet_action=search&_estatsearchportlet_WAR_estatsearchportlet_collection=dataset&_estatsearchportlet_WAR_estatsearchportlet_publicationDate=2015) which containts the following two variables:
+
+
+1- **Healthy life years**: Is a health expectancy indicator which combines information on mortality and morbidity.
+<br/>
+2- **Life expectancy**:  Life expectancy at birth is defined as the mean number of years still to be lived by a person at birth
+<br/>
+
+
+Original data is splitted into gender, but here the average was computed between female and male to have only one metric. Other important point is the year that data belongs, it is: 2012 (old, but the newest one).
+<br/>
+
+**Following plots shows these indicators in a map**, *Each metric is expressed in years.*
+
+<br/>
+
+#### Life expectancy (left) Vs. Healthy life years (right)
+```{r map_1_2, echo=FALSE,results='asis'}
+  print(map_1_2, 'chart')
+```  
+
+
+<br/>
+<br/>
+
+
+####  Top 3 - Countries
+```{r tbl1, echo=FALSE,results='asis'}
+  print(tables_top3, 'chart')
+```  
+<br/>
+**Here we can see that top 3 countries with the highest healthy life, *are not* the top 3 highest with longer life expectancy.**
+<br/>
+<br/>
+
+###  Gap healthy life 
+Now we've know how **"expectancy"** and **"healthy"** is distributed, we proceed to compute the gap among them, generating a new metric called **"Gap healthy life"**
+</br>
+This metric tends to be higher when the countries tend to have more people that live until their final days, in a **no-good condition**.
+On the other hand, when the metric is closer to 0, it shows that people live almost all their lifes in a good way, how it doesn't reflects if that living is long or short. 
+
+```{r map_3, echo=FALSE,results='asis'}
+  print(map_3, 'chart')
+```  
+</br>
+To reflect quantitavely the most dissimilar (left) and the most equitative (right), following table was created:
+</br>
+```{r tbl_gap, echo=FALSE,results='asis'}
+  print(tables_top3_gap, 'chart')
+```  
+</br>
+
+#### Final thoughts
+It's interesting to note how many years people lives in a bad quality of life until their dead, like Germany which their good living ends at the age of 57, while their life expectancy is around 81.
+</br>
+Looking at Slovenia which holds the highest gap, we can see their people lives 35% of their lifes in a bad-quality (healthy: 52, expectancy:80.2)
+</br>
+One further analysis could be to analyze these metrics, across the time, to see their progress or not.
+
+</br>
+</br>
+
+#### Contact
+
+Made by [pcasas](pcasas@datascienceheroes.com). Code Available in: 
+
+

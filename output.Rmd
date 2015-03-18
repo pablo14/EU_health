@@ -62,17 +62,18 @@ To reflect quantitavely the most dissimilar (left) and the most equitative (righ
 </br>
 
 #### Final thoughts
-It's interesting to note how many years people lives in a bad quality of life until their dead, like Germany which their good living ends at the age of 57, while their life expectancy is around 81.
+It's interesting to note how many years people lives in a bad quality of life until their dead, like Germany which their good living ends at the age of 57, while their life expectancy is around 81 years.
 </br>
-Looking at Slovenia which holds the highest gap, we can see their people lives 35% of their lifes in a bad-quality (healthy: 52, expectancy:80.2)
+Looking at Slovenia which holds the highest gap, we can see their people lives 35% of their lifes in a bad-quality (healthy: 52 vs expectancy:80.2 years)
 </br>
-One further analysis could be to analyze these metrics, across the time, to see their progress or not.
+One further analysis could be to analyze these metrics, across the time, to see trending.
 
 </br>
 </br>
 
 #### Contact
-
-Made by [pcasas](pcasas@datascienceheroes.com). Code Available in: 
+Code Available in: https://github.com/pablo14/EU_health
+</br>
+Made by pcasas from [Data Science Heroes](http://datascienceheroes.com)
 
 

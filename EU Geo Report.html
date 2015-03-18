@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>EU - Life Quality Geo Report</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>EU - Life Quality Geo Report</h1>
+
+<h3><em>Living longer, living better?</em></h3>
+
+<p><br/></p>
+
+<p>It&#39;s equally important to measure the longer living as well as its quality. 
+<br/>
+Analyzing data from <a href="http://ec.europa.eu/eurostat/publications/recently-published?p_auth=ZKofrOKp&amp;p_p_id=estatsearchportlet_WAR_estatsearchportlet&amp;p_p_lifecycle=1&amp;p_p_state=maximized&amp;p_p_mode=view&amp;_estatsearchportlet_WAR_estatsearchportlet_position=HLY_M&amp;_estatsearchportlet_WAR_estatsearchportlet_dimension=break_sd&amp;_estatsearchportlet_WAR_estatsearchportlet_sort=lastUpdateDate&amp;_estatsearchportlet_WAR_estatsearchportlet_theme=PER_POPSOC&amp;_estatsearchportlet_WAR_estatsearchportlet_action=search&amp;_estatsearchportlet_WAR_estatsearchportlet_collection=dataset&amp;_estatsearchportlet_WAR_estatsearchportlet_publicationDate=2015">eurostat</a> which containts the following two variables:</p>
+
+<p>1- <strong>Healthy life years</strong>: Is a health expectancy indicator which combines information on mortality and morbidity.
+<br/>
+2- <strong>Life expectancy</strong>:  Life expectancy at birth is defined as the mean number of years still to be lived by a person at birth
+<br/></p>
+
+<p>Original data is splitted into gender, but here the average was computed between female and male to have only one metric. Other important point is the year that data belongs, it is: 2012 (old, but the newest one).
+<br/></p>
+
+<p><strong>Following plots shows these indicators in a map</strong>, <em>Each metric is expressed in years.</em></p>
+
+<p><br/></p>
+
+<h4>Life expectancy (left) Vs. Healthy life years (right)</h4>
+
+<!-- GeoChart generated in R 3.1.2 by googleVis 0.5.6 package -->
+
+<!-- Tue Mar 17 19:44:23 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartID1f3876420d5 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "AT",
+81 
+],
+[
+ "BE",
+80.45 
+],
+[
+ "BG",
+74.4 
+],
+[
+ "CH",
+82.75 
+],
+[
+ "CY",
+81.15 
+],
+[
+ "CZ",
+78.15 
+],
+[
+ "DE",
+80.95 
+],
+[
+ "DK",
+80.1 
+],
+[
+ "EE",
+76.45 
+],
+[
+ "EL",
+80.7 
+],
+[
+ "ES",
+82.5 
+],
+[
+ "FI",
+80.7 
+],
+[
+ "FR",
+82.05 
+],
+[
+ "HR",
+77.25 
+],
+[
+ "HU",
+75.15 
+],
+[
+ "IE",
+80.95 
+],
+[
+ "IS",
+82.95 
+],
+[
+ "IT",
+82.3 
+],
+[
+ "LT",
+74 
+],
+[
+ "LU",
+81.45 
+],
+[
+ "LV",
+73.9 
+],
+[
+ "MT",
+80.8 
+],
+[
+ "NL",
+81.15 
+],
+[
+ "NO",
+81.5 
+],
+[
+ "PL",
+76.9 
+],
+[
+ "PT",
+80.45 
+],
+[
+ "RO",
+74.55 
+],
+[
+ "SE",
+81.75 
+],
+[
+ "SI",
+80.2 
+],
+[
+ "SK",
+76.2 
+],
+[
+ "UK",
+80.95 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Life_Expectancy');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataGeoChartID1f38a201193 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "AT",
+61.35 
+],
+[
+ "BE",
+64.85 
+],
+[
+ "BG",
+63.9 
+],
+[
+ "CH",
+68.1 
+],
+[
+ "CY",
+63.7 
+],
+[
+ "CZ",
+63.2 
+],
+[
+ "DE",
+57.65 
+],
+[
+ "DK",
+61 
+],
+[
+ "EE",
+55.15 
+],
+[
+ "EL",
+64.85 
+],
+[
+ "ES",
+65.3 
+],
+[
+ "FI",
+56.75 
+],
+[
+ "FR",
+63.2 
+],
+[
+ "HR",
+63.05 
+],
+[
+ "HU",
+59.85 
+],
+[
+ "IE",
+67.2 
+],
+[
+ "IS",
+69.2 
+],
+[
+ "IT",
+61.8 
+],
+[
+ "LT",
+59.1 
+],
+[
+ "LU",
+66.1 
+],
+[
+ "LV",
+56.8 
+],
+[
+ "MT",
+71.85 
+],
+[
+ "NL",
+61.2 
+],
+[
+ "NO",
+71.15 
+],
+[
+ "PL",
+61.05 
+],
+[
+ "PT",
+63.55 
+],
+[
+ "RO",
+57.7 
+],
+[
+ "SE",
+70.7 
+],
+[
+ "SI",
+56.05 
+],
+[
+ "SK",
+53.25 
+],
+[
+ "UK",
+64.55 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Healthy_Life');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartID1f3876420d5() {
+var data = gvisDataGeoChartID1f3876420d5();
+var options = {};
+options["width"] =    556;
+options["height"] =    347;
+options["projection"] = "kavrayskiy-vii";
+options["title"] = "aaa";
+options["region"] = "150";
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID1f3876420d5')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartGeoChartID1f38a201193() {
+var data = gvisDataGeoChartID1f38a201193();
+var options = {};
+options["width"] =    556;
+options["height"] =    347;
+options["projection"] = "kavrayskiy-vii";
+options["title"] = "aaa";
+options["region"] = "150";
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID1f38a201193')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID1f3876420d5);
+})();
+function displayChartGeoChartID1f3876420d5() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID1f38a201193);
+})();
+function displayChartGeoChartID1f38a201193() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1f3876420d5"></script>
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1f38a201193"></script>
+ 
+
+<table border="0">
+<tr>
+<td>
+
+<!-- divChart -->
+  
+<div id="GeoChartID1f3876420d5" 
+  style="width: 556; height: 347;">
+</div>
+
+</td>
+<td>
+
+<!-- divChart -->
+  
+<div id="GeoChartID1f38a201193" 
+  style="width: 556; height: 347;">
+</div>
+
+</td>
+</tr>
+</table>
+
+<p><br/>
+<br/></p>
+
+<h4>Top 3 - Countries</h4>
+
+<!-- Table generated in R 3.1.2 by googleVis 0.5.6 package -->
+
+<!-- Tue Mar 17 19:44:23 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID1f382c137254 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Malta",
+71.85 
+],
+[
+ "Norway",
+71.15 
+],
+[
+ "Sweden",
+70.7 
+] 
+];
+data.addColumn('string','Name');
+data.addColumn('number','Healthy_Life');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataTableID1f383ce07082 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Iceland",
+82.95 
+],
+[
+ "Switzerland",
+82.75 
+],
+[
+ "Spain",
+82.5 
+] 
+];
+data.addColumn('string','Name');
+data.addColumn('number','Life_Expectancy');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID1f382c137254() {
+var data = gvisDataTableID1f382c137254();
+var options = {};
+options["allowHtml"] = true;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID1f382c137254')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartTableID1f383ce07082() {
+var data = gvisDataTableID1f383ce07082();
+var options = {};
+options["allowHtml"] = true;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID1f383ce07082')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID1f382c137254);
+})();
+function displayChartTableID1f382c137254() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID1f383ce07082);
+})();
+function displayChartTableID1f383ce07082() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1f382c137254"></script>
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1f383ce07082"></script>
+ 
+
+<table border="0">
+<tr>
+<td>
+
+<!-- divChart -->
+  
+<div id="TableID1f382c137254" 
+  style="width: 500; height: automatic;">
+</div>
+
+</td>
+<td>
+
+<!-- divChart -->
+  
+<div id="TableID1f383ce07082" 
+  style="width: 500; height: automatic;">
+</div>
+
+</td>
+</tr>
+</table>
+
+<p><br/>
+<strong>Here we can see that top 3 countries with the highest healthy life, <em>are not</em> the top 3 highest with longer life expectancy.</strong>
+<br/>
+<br/></p>
+
+<h3>Gap healthy life</h3>
+
+<p>Now we&#39;ve know how <strong>&ldquo;expectancy&rdquo;</strong> and <strong>&ldquo;healthy&rdquo;</strong> is distributed, we proceed to compute the gap among them, generating a new metric called <strong>&ldquo;Gap healthy life&rdquo;</strong>
+</br>
+This metric tends to be higher when the countries tend to have more people that live until their final days, in a <strong>no-good condition</strong>.
+On the other hand, when the metric is closer to 0, it shows that people live almost all their lifes in a good way, how it doesn&#39;t reflects if that living is long or short. </p>
+
+<!-- GeoChart generated in R 3.1.2 by googleVis 0.5.6 package -->
+
+<!-- Tue Mar 17 19:44:23 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartID1f38222872c7 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "AT",
+19.65 
+],
+[
+ "BE",
+15.6 
+],
+[
+ "BG",
+10.5 
+],
+[
+ "CH",
+14.65 
+],
+[
+ "CY",
+17.45 
+],
+[
+ "CZ",
+14.95 
+],
+[
+ "DE",
+23.3 
+],
+[
+ "DK",
+19.1 
+],
+[
+ "EE",
+21.3 
+],
+[
+ "EL",
+15.85 
+],
+[
+ "ES",
+17.2 
+],
+[
+ "FI",
+23.95 
+],
+[
+ "FR",
+18.85 
+],
+[
+ "HR",
+14.2 
+],
+[
+ "HU",
+15.3 
+],
+[
+ "IE",
+13.75 
+],
+[
+ "IS",
+13.75 
+],
+[
+ "IT",
+20.5 
+],
+[
+ "LT",
+14.9 
+],
+[
+ "LU",
+15.35 
+],
+[
+ "LV",
+17.1 
+],
+[
+ "MT",
+8.95 
+],
+[
+ "NL",
+19.95 
+],
+[
+ "NO",
+10.35 
+],
+[
+ "PL",
+15.85 
+],
+[
+ "PT",
+16.9 
+],
+[
+ "RO",
+16.85 
+],
+[
+ "SE",
+11.05 
+],
+[
+ "SI",
+24.15 
+],
+[
+ "SK",
+22.95 
+],
+[
+ "UK",
+16.4 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','age_gap');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartID1f38222872c7() {
+var data = gvisDataGeoChartID1f38222872c7();
+var options = {};
+options["width"] =    556;
+options["height"] =    347;
+options["projection"] = "kavrayskiy-vii";
+options["region"] = "150";
+options["colors"] = ['#00853f', '#e31b23'];
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID1f38222872c7')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID1f38222872c7);
+})();
+function displayChartGeoChartID1f38222872c7() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1f38222872c7"></script>
+ 
+
+<!-- divChart -->
+
+<div id="GeoChartID1f38222872c7" 
+  style="width: 556; height: 347;">
+</div>
+
+<p></br>
+To reflect quantitavely the most dissimilar (left) and the most equitative (right), following table was created:
+</br></p>
+
+<!-- Table generated in R 3.1.2 by googleVis 0.5.6 package -->
+
+<!-- Tue Mar 17 19:44:23 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID1f3850526ff1 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Slovenia",
+24.15 
+],
+[
+ "Finland",
+23.95 
+],
+[
+ "Germany",
+23.3 
+] 
+];
+data.addColumn('string','Name');
+data.addColumn('number','age_gap');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataTableID1f388c53b63 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Malta",
+8.95 
+],
+[
+ "Norway",
+10.35 
+],
+[
+ "Bulgaria",
+10.5 
+] 
+];
+data.addColumn('string','Name');
+data.addColumn('number','age_gap');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID1f3850526ff1() {
+var data = gvisDataTableID1f3850526ff1();
+var options = {};
+options["allowHtml"] = true;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID1f3850526ff1')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartTableID1f388c53b63() {
+var data = gvisDataTableID1f388c53b63();
+var options = {};
+options["allowHtml"] = true;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID1f388c53b63')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID1f3850526ff1);
+})();
+function displayChartTableID1f3850526ff1() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID1f388c53b63);
+})();
+function displayChartTableID1f388c53b63() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1f3850526ff1"></script>
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1f388c53b63"></script>
+ 
+
+<table border="0">
+<tr>
+<td>
+
+<!-- divChart -->
+  
+<div id="TableID1f3850526ff1" 
+  style="width: 500; height: automatic;">
+</div>
+
+</td>
+<td>
+
+<!-- divChart -->
+  
+<div id="TableID1f388c53b63" 
+  style="width: 500; height: automatic;">
+</div>
+
+</td>
+</tr>
+</table>
+
+<p></br></p>
+
+<h4>Final thoughts</h4>
+
+<p>It&#39;s interesting to note how many years people lives in a bad quality of life until their dead, like Germany which their good living ends at the age of 57, while their life expectancy is around 81.
+</br>
+Looking at Slovenia which holds the highest gap, we can see their people lives 35% of their lifes in a bad-quality (healthy: 52, expectancy:80.2)
+</br>
+One further analysis could be to analyze these metrics, across the time, to see their progress or not.</p>
+
+<p></br>
+</br></p>
+
+<h4>Contact</h4>
+
+<p>Made by <a href="pcasas@datascienceheroes.com">pcasas</a>. Code Available in: </p>
+
+</body>
+
+</html>

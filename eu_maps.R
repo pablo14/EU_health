@@ -92,3 +92,7 @@ table_top3_gap_hi <<- gvisTable(top3_highest_gap[,c("Name","age_gap" )])
 table_top3_gap_lo <<- gvisTable(top3_lowest_exp[,c("Name","age_gap" )])
 
 tables_top3_gap <<- gvisMerge(table_top3_gap_hi, table_top3_gap_lo, horizontal=TRUE) 
+
+
+#knit("output.Rmd",encoding="UTF-8")
+#markdownToHTML("output.md", "EU Geo Report.html")

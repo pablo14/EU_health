@@ -1,102 +1,70 @@
-suppressPackageStartupMessages(library(googleVis))
-library(plyr)
+library(magrittr)
 library(knitr)
 library(markdown)
+library(dplyr)
+library(tmap)
+library(ISOcodes)
+library(htmlTable)
 
 ## Read data (this data has already some data preparation)
 data=read.delim("data.txt", header=TRUE)
 
-## Get country cod-name to translate abbreviations
-country_name_abb=read.csv("country_name_abb.txt", header=TRUE)
-data=merge(data, country_name_abb, by="Country", all.x =T)
+data("ISO_3166_1") # countrycodes
+data("Europe")
 
-## Get clean Country variable
-data$Country=data$Name
+ISO_3166_1 %<>% transmute(  iso_a2 = Alpha_2, iso_a3 = Alpha_3, Country = Name)
+data %<>% mutate( iso_a2 = Country) %>% select(-Country)
 
+data %<>% left_join(ISO_3166_1, by= "iso_a2")
 
-## Calculate average to consider both genders
-data_avg_all=ddply(data, c("Variable", "Country"), .fun = function(d)
-  c(
-    "age_mean" = round(mean(d[,"X2012"],na.rm=TRUE),2)
-  ))
+data_hea_lif <- data %>% filter(Variable == "Healthy life years") %>% 
+      group_by(Country) %>% summarise(Healthy_life=mean(X2012))
 
+data_lif_exp <- data %>% filter(Variable == "Life expectancy") %>% 
+  group_by(Country) %>% summarise(Life_Expectancy=mean(X2012))
 
-## Generating final data frame to analyze.
-data_hea_lif=subset(data_avg_all, Variable=="Healthy life years")
-names(data_hea_lif)[3]="Healthy_Life"
+data_merged <- left_join(data_hea_lif, data_lif_exp, by="Country") %>% mutate(age_gap=Life_Expectancy-Healthy_life) %>% 
+  filter(Country != "NA")
 
-data_lif_exp=subset(data_avg_all, Variable=="Life expectancy")
-names(data_lif_exp)[3]="Life_Expectancy"
+Europe@data  %>% left_join(ISO_3166_1, by="iso_a3") %>% left_join(data_merged, by="Country") -> Europe@data
 
-data_merged=merge(data_hea_lif, data_lif_exp, by="Country")
-
-## Computing the "age gap"
-data_merged$age_gap=data_merged$Life_Expectancy-data_merged$Healthy_Life
+map_1<- tm_shape(Europe) +
+  tm_fill("Healthy_life", textNA="NA") +
+  tm_borders() +
+  tm_text("iso_a3", cex="AREA", root=5) + 
+  tm_layout_Europe("Healthy life years")
 
 
-## Map building. Pretty easy with google viz!
-## Map 1
-map_1<<-gvisGeoChart(data_merged, locationvar="Country", 
-                     colorvar="Life_Expectancy",
-                     options=list(
-                       projection="kavrayskiy-vii", 
-                       title="aaa", 
-                       region="150"
-                       #colors="['#E6E6F5', '#00006B']"  
-                     ))
+map_2 <- tm_shape(Europe) +
+  tm_fill("Life_Expectancy", textNA="NA") +
+  tm_borders() +
+  tm_text("iso_a3", cex="AREA", root=5) + 
+  tm_layout_Europe("Life expectancy")
 
-## Map 2
-map_2<<-gvisGeoChart(data_merged, locationvar="Country", 
-                     colorvar="Healthy_Life",
-                     options=list(
-                       projection="kavrayskiy-vii", 
-                       title="aaa", 
-                       region="150"
-                       #colors="['#E6E6F5', '#00006B']"  
-                     ))
+map_3 <- tm_shape(Europe) +
+  tm_fill("age_gap", textNA="NA") +
+  tm_borders() +
+  tm_text("iso_a3", cex="AREA", root=5) + 
+  tm_layout_Europe("Age gap")
 
 
-map_1_2 <<- gvisMerge(map_1, map_2, horizontal=TRUE) 
-#plot(map_1_2)
 
+# #####################################
+# ## Top 3 countries (healty and expectancy)
+# ######################################
 
-## Map 3: GAP
-map_3<<-gvisGeoChart(data_merged, locationvar="Country", 
-                             colorvar="age_gap",
-                             options=list(
-                               projection="kavrayskiy-vii", 
-                               region="150",
-                               colors="['#00853f', '#e31b23']"  
-                               ))
+top3_hea_lif <- data_merged %>% arrange(desc(Healthy_life)) %>% select(Country, Healthy_life) %>% head(3)
+top3_lif_exp <- data_merged %>% arrange(desc(Life_Expectancy)) %>% select(Country, Life_Expectancy) %>% head(3)
+tables_top3 <- bind_cols(top3_hea_lif,top3_lif_exp)
 
-#####################################
-## Top 3 countries (healty and expectancy)
-######################################
+# #####################################
+# ## Top 3 countries (gap)
+# ######################################
+# ## Order data for both variables, and keeping the highest top 3
 
-
-## Order data for both variables, and keeping the highest top 3
-top3_hea_lif=head(data_merged[order(data_merged$Healthy_Life, decreasing=c(T)),],3) 
-top3_lif_exp=head(data_merged[order(data_merged$Life_Expectancy, decreasing=c(T)),],3) 
-
-## Tables building
-table_top3_hea_lif <<- gvisTable(top3_hea_lif[,c("Country","Healthy_Life" )])
-table_top3_lif_exp <<- gvisTable(top3_lif_exp[,c("Country","Life_Expectancy" )])
-
-tables_top3 <<- gvisMerge(table_top3_hea_lif, table_top3_lif_exp, horizontal=TRUE) 
-
-#####################################
-## Top 3 countries (gap)
-######################################
-## Order data for both variables, and keeping the highest top 3
-top3_highest_gap=head(data_merged[order(data_merged$age_gap, decreasing=c(T)),],3) 
-top3_lowest_exp=head(data_merged[order(data_merged$age_gap),],3) 
-
-## Tables building
-table_top3_gap_hi <<- gvisTable(top3_highest_gap[,c("Country","age_gap" )])
-table_top3_gap_lo <<- gvisTable(top3_lowest_exp[,c("Country","age_gap" )])
-
-tables_top3_gap <<- gvisMerge(table_top3_gap_hi, table_top3_gap_lo, horizontal=TRUE) 
-
+top3_highest_gap <- data_merged %>% arrange(desc(age_gap) ) %>% head(3)
+top3_lowest_exp <- data_merged %>% arrange(desc(age_gap) ) %>% tail(3)
+tables_top3_gap <- bind_cols(top3_highest_gap,top3_lowest_exp)
 
 #knit("output.Rmd",encoding="UTF-8")
 #markdownToHTML("output.md", "EU Geo Report.html")

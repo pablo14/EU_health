@@ -25,9 +25,10 @@ Original data is splitted into gender, but here the average was computed between
 
 <br/>
 
-#### Life expectancy (left) Vs. Healthy life years (right)
+#### Life expectancy (top) Vs. Healthy life years (bottom)
 ```{r map_1_2, echo=FALSE,results='asis'}
-  print(map_1_2, 'chart')
+  print(map_2)
+  print(map_1)
 ```  
 
 
@@ -37,7 +38,8 @@ Original data is splitted into gender, but here the average was computed between
 
 ####  Top 3 - Countries
 ```{r tbl1, echo=FALSE,results='asis'}
-  print(tables_top3, 'chart')
+htmlTable(tables_top3,align="lrlr",css.class = "table table-bordered table-hover table-striped", rnames = FALSE) 
+
 ```  
 <br/>
 **Here we can see that top 3 countries with the highest healthy life, *are not* the top 3 highest with longer life expectancy.**
@@ -51,13 +53,13 @@ This metric tends to be higher when the countries tend to have more people that 
 On the other hand, when the metric is closer to 0, it shows that people live almost all their lifes in a good way, how it doesn't reflects if that living is long or short. 
 
 ```{r map_3, echo=FALSE,results='asis'}
-  print(map_3, 'chart')
+ print(map_3)
 ```  
 </br>
 To reflect quantitavely the most dissimilar (left) and the most equitative (right), following table was created:
 </br>
 ```{r tbl_gap, echo=FALSE,results='asis'}
-  print(tables_top3_gap, 'chart')
+ htmlTable(tables_top3_gap,align="lrlr",css.class = "table table-bordered table-hover table-striped", rnames = FALSE)
 ```  
 </br>
 
